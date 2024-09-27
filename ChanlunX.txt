@@ -4,21 +4,21 @@
 笔中枢:=0;
 段中枢:=0;
 
-DIRECTION:=TDXDLL7(1,0,H,L);{1表示方向向上，-1表示方向向下}
-INCLUDE:=TDXDLL7(2,0,H,L);{1表示和前面K线发生了包含关系，0表示和前面K线没有发生包含关系}
-OUTH:=TDXDLL7(3,0,H,L);{包含处理后的K线高}
-OUTL:=TDXDLL7(4,0,H,L);{包含处理后的K线低}
-INC:=TDXDLL7(5,0,0,INCLUDE);{处理一下包含信号方便画图}
-FRAC:=TDXDLL7(6,0,H,L);{计算分型顶底}
-DUAN:=TDXDLL7(7,FRAC,H,L);{计算段的端点}
+DIRECTION:=TDXDLL1(1,0,H,L);{1表示方向向上，-1表示方向向下}
+INCLUDE:=TDXDLL1(2,0,H,L);{1表示和前面K线发生了包含关系，0表示和前面K线没有发生包含关系}
+OUTH:=TDXDLL1(3,0,H,L);{包含处理后的K线高}
+OUTL:=TDXDLL1(4,0,H,L);{包含处理后的K线低}
+INC:=TDXDLL1(5,0,0,INCLUDE);{处理一下包含信号方便画图}
+FRAC:=TDXDLL1(6,0,H,L);{计算分型顶底}
+DUAN:=TDXDLL1(7,FRAC,H,L);{计算段的端点}
 
-BISE:=TDXDLL7(10,FRAC,H,L);{输出笔中枢开始和结束}
-BIZG:=TDXDLL7(8,FRAC,H,L);{输出笔中枢高}
-BIZD:=TDXDLL7(9,FRAC,H,L);{输出笔中枢低}
+BISE:=TDXDLL1(10,FRAC,H,L);{输出笔中枢开始和结束}
+BIZG:=TDXDLL1(8,FRAC,H,L);{输出笔中枢高}
+BIZD:=TDXDLL1(9,FRAC,H,L);{输出笔中枢低}
 
-DUANSE:=TDXDLL7(10,DUAN,H,L);{输出段中枢开始和结束}
-DUANZG:=TDXDLL7(8,DUAN,H,L);{输出段中枢高}
-DUANZD:=TDXDLL7(9,DUAN,H,L);{输出段中枢低}
+DUANSE:=TDXDLL1(10,DUAN,H,L);{输出段中枢开始和结束}
+DUANZG:=TDXDLL1(8,DUAN,H,L);{输出段中枢高}
+DUANZD:=TDXDLL1(9,DUAN,H,L);{输出段中枢低}
 
 NOTEXT画包含高1:DRAWLINE(包含=1 AND INC=1 AND REF(INC,1)!=1,OUTH,包含=1 AND INC=1 AND REFX(INC,1)!=1,OUTH,0),COLORLIMAGENTA;
 NOTEXT画包含低1:DRAWLINE(包含=1 AND INC=1 AND REF(INC,1)!=1,OUTL,包含=1 AND INC=1 AND REFX(INC,1)!=1,OUTL,0),COLORLIMAGENTA;
